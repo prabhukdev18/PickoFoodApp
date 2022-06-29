@@ -29,7 +29,7 @@ export default function LoginForm({navigation}) {
       return setErrorEmail('Please Enter valid Email ID !!!');
     else if (!passwordRegex.test(password))
       return setErrorPassword('Please Enter Valid Password !!!');
-    else return navigation.navigate('Home', {email: email});
+    // else return navigation.navigate('Home', {email: email});
   };
 
   return (
@@ -68,7 +68,9 @@ export default function LoginForm({navigation}) {
         {errorPassword && <Text style={{color: 'red'}}>{errorPassword}</Text>}
       </View>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.btn} onPress={handleSubmit}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => navigation.navigate('Home')}>
           <Text style={styles.btnText}>Login</Text>
         </TouchableOpacity>
       </View>
